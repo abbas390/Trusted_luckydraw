@@ -1,68 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Online Trusted Lucky Draw</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #1a2a3a, #0b141e);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .button {
-            background-color: #28a745;
-            color: white;
-            padding: 15px 25px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .button:hover {
-            background-color: #218838;
-        }
-        .ticket-info {
-            font-size: 1rem;
-            margin-top: 10px;
-        }
-        .note {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-top: 5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Online Trusted Lucky Draw</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #2b1b00, #0b0700 70%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #1a1200, #000);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+}
+
+/* Heading */
+h1 {
+    font-size: 1.8rem;
+    color: gold;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255,215,0,0.6);
+}
+
+/* Spin Wheel */
+.wheel {
+    width: 160px;
+    height: 160px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: conic-gradient(
+        gold 0deg,
+        #ffcc00 60deg,
+        #c89b00 120deg,
+        gold 180deg,
+        #ffcc00 240deg,
+        #c89b00 300deg,
+        gold 360deg
+    );
+    animation: spin 6s linear infinite;
+    box-shadow: 0 0 25px rgba(255,215,0,0.7);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Button */
+.btn {
+    display: block;
+    margin: 25px auto 15px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(90deg, gold, #ffcc00, gold);
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(255,215,0,0.7);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255,215,0,1);
+}
+
+/* Info */
+.info {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 10px;
+    color: #f1e6b2;
+}
+
+.highlight {
+    color: gold;
+    font-weight: bold;
+}
+
+/* Footer note */
+.note {
+    font-size: 0.8rem;
+    margin-top: 12px;
+    color: #ccc;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
+
     <h1>New Online Trusted Lucky Draw</h1>
-    
-    <a href="https://wa.me/923409909351" target="_blank" class="button">
-        If you want to buy lucky draw tickets, click on the button below 👇
+
+    <div class="wheel"></div>
+
+    <a href="https://wa.me/923409909351" target="_blank" class="btn">
+        click on button 🔘 to buy tickets
     </a>
 
-    <div class="ticket-info">
-        Ticket Price: 175 PKR per ticket<br>
-        Lucky Draw Date: One month from now<br>
-        Limited Tickets! Hurry before they run out.
+    <div class="info">
+        Ticket Price: <span class="highlight">175 PKR</span> per ticket<br>
+        Lucky Draw Date: <span class="highlight">One month from now</span><br>
+        Limited Tickets Available
     </div>
-    
+
     <div class="note">
         All transactions handled securely via WhatsApp.
     </div>
+
+</div>
 </body>
 </html>
