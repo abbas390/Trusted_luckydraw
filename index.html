@@ -2,126 +2,134 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Online Trusted Lucky Draw</title>
+<title>Free Fire Tournament</title>
 
 <style>
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #2b1b00, #0b0700 70%);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+*{
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
 }
 
-.container {
-    max-width: 420px;
-    width: 100%;
-    text-align: center;
-    padding: 25px;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #1a1200, #000);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+body, html{
+  height:100%;
+  overflow:hidden;
 }
 
-/* Heading */
-h1 {
-    font-size: 1.8rem;
-    color: gold;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(255,215,0,0.6);
+/* Background video */
+video{
+  position:fixed;
+  right:0;
+  bottom:0;
+  min-width:100%;
+  min-height:100%;
+  z-index:-1;
+  object-fit:cover;
 }
 
-/* Spin Wheel */
-.wheel {
-    width: 160px;
-    height: 160px;
-    margin: 20px auto;
-    border-radius: 50%;
-    background: conic-gradient(
-        gold 0deg,
-        #ffcc00 60deg,
-        #c89b00 120deg,
-        gold 180deg,
-        #ffcc00 240deg,
-        #c89b00 300deg,
-        gold 360deg
-    );
-    animation: spin 6s linear infinite;
-    box-shadow: 0 0 25px rgba(255,215,0,0.7);
+/* Dark overlay */
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:0;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Form box */
+.container{
+  position:relative;
+  z-index:1;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* Button */
-.btn {
-    display: block;
-    margin: 25px auto 15px;
-    padding: 15px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #000;
-    background: linear-gradient(90deg, gold, #ffcc00, gold);
-    border-radius: 12px;
-    text-decoration: none;
-    box-shadow: 0 0 20px rgba(255,215,0,0.7);
-    transition: transform 0.2s, box-shadow 0.2s;
+.form-box{
+  background:rgba(20,20,20,0.85);
+  padding:25px;
+  border-radius:15px;
+  width:300px;
+  text-align:center;
+  color:white;
+  box-shadow:0 0 20px #00ff88;
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(255,215,0,1);
+h2{
+  margin-bottom:15px;
+  color:#00ff88;
 }
 
-/* Info */
-.info {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-top: 10px;
-    color: #f1e6b2;
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+  outline:none;
 }
 
-.highlight {
-    color: gold;
-    font-weight: bold;
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:8px;
+  background:#25D366;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 0 10px #25D366;
 }
 
-/* Footer note */
-.note {
-    font-size: 0.8rem;
-    margin-top: 12px;
-    color: #ccc;
+button:hover{
+  transform:scale(1.05);
 }
 </style>
+
 </head>
 
 <body>
+
+<!-- 🔴 Free Fire gameplay video (replace link if needed) -->
+<video autoplay muted loop>
+  <source src="https://cdn.coverr.co/videos/coverr-battle-royale-gameplay-4146/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
 <div class="container">
+  <div class="form-box">
+    <h2>Free Fire Tournament</h2>
 
-    <h1>New Online Trusted Lucky Draw</h1>
+    <input type="text" id="name" placeholder="Enter Your Name">
+    <input type="text" id="uid" placeholder="Enter Your UID">
 
-    <div class="wheel"></div>
-
-    <a href="https://wa.me/923409909351" target="_blank" class="btn">
-        click on button 🔘 to buy tickets
-    </a>
-
-    <div class="info">
-        Ticket Price: <span class="highlight">175 PKR</span> per ticket<br>
-        Lucky Draw Date: <span class="highlight">One month from now</span><br>
-        Limited Tickets Available
-    </div>
-
-    <div class="note">
-        All transactions handled securely via WhatsApp.
-    </div>
-
+    <button onclick="sendWhatsApp()">Register on WhatsApp</button>
+  </div>
 </div>
+
+<script>
+function sendWhatsApp(){
+  let name = document.getElementById("name").value;
+  let uid = document.getElementById("uid").value;
+
+  if(name === "" || uid === ""){
+    alert("Please fill all fields");
+    return;
+  }
+
+  let number = "923409909351";
+  let message = 
+  "🔥 Free Fire Tournament Registration\n\n" +
+  "Name: " + name + "\n" +
+  "UID: " + uid;
+
+  let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+</script>
+
 </body>
 </html>
